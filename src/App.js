@@ -8,13 +8,18 @@ export default function App() {
 
       <footer>
         This project was coded by {""}
-        <a href="https://www.linkedin.com/feed/" target="_blank">
+        <a
+          href="https://www.linkedin.com/feed/"
+          target="_blank"
+          rel="noreferrer"
+        >
           Mirieli Maria{" "}
         </a>{" "}
         an is {""}
         <a
           href="https://github.com/mirielimacedo/react-weather-app"
           target="_blank"
+          rel="noreferrer"
         >
           open-source on GitHub
         </a>
