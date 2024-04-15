@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+// Weather.js
+import React, { useState, useEffect } from "react";
 import "./Weather.css";
 import axios from "axios";
 
-export default function Weather(props) {
+export default function Weather({ city, onCityChange }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
-
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -19,10 +19,29 @@ export default function Weather(props) {
       city: response.data.name,
     });
   }
+
+  useEffect(() => {
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+      city
+    )}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }, [city]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onCityChange(city);
+  }
+
+  function updateCity(event) {
+    onCityChange(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input
@@ -30,6 +49,7 @@ export default function Weather(props) {
                 placeholder="Enter a city..."
                 className="form-control"
                 autoFocus="on"
+                onChange={updateCity}
               ></input>
             </div>
             <div className="col-3">
@@ -77,12 +97,6 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-      props.defaultCity
-    )}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
     return "Loading...";
   }
 }

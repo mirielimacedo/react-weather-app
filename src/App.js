@@ -1,12 +1,15 @@
-import React from "react";
+// App.js
+import React, { useState } from "react";
 import "./App.css";
 import Weather from "./Weather";
 
 export default function App() {
+  const [city, setCity] = useState("Perth");
+
   return (
     <div className="App">
       <div className="container">
-        <Weather defaultCity="São Paulo" />
+        <Weather city={city} onCityChange={setCity} />
 
         <footer>
           This project was coded by {""}
@@ -17,7 +20,7 @@ export default function App() {
           >
             Mirieli Maria{" "}
           </a>{" "}
-          an is {""}
+          and is {""}
           <a
             href="https://github.com/mirielimacedo/react-weather-app"
             target="_blank"
