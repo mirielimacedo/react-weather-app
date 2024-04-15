@@ -1,7 +1,7 @@
-// Weather.js
 import React, { useState, useEffect } from "react";
 import "./Weather.css";
 import axios from "axios";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather({ city, onCityChange }) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -12,9 +12,9 @@ export default function Weather({ city, onCityChange }) {
       ready: true,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
-      date: "Wednesday 7:00",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl: "https:ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       wind: response.data.wind.speed,
       city: response.data.name,
     });
@@ -63,37 +63,7 @@ export default function Weather({ city, onCityChange }) {
             </div>
           </div>
         </form>
-        <h1> {weatherData.city}</h1>
-        <ul>
-          <li>{weatherData.date}</li>
-          <li className="text-capitalize">{weatherData.description}</li>
-        </ul>
-        <div className="row mt-3">
-          <div className="col-6">
-            <div className="clearfix">
-              <img
-                src={weatherData.iconUrl}
-                alt={weatherData.description}
-                className="float-left"
-              ></img>
-              <span className="float-left">
-                <span className="temperature">
-                  {Math.round(weatherData.temperature)}
-                </span>
-                <span className="unit">
-                  {""} °C {""} | {""} °F
-                </span>
-              </span>
-            </div>
-          </div>
-          <div className="col-6">
-            <ul>
-              <li>Precipitation:15%</li>
-              <li>Humidity:{weatherData.humidity}%</li>
-              <li>Wind:{weatherData.wind} km/h</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
