@@ -26,7 +26,15 @@ export default function App() {
             target="_blank"
             rel="noreferrer"
           >
-            open-source on GitHub
+            open-source on GitHub {""}
+          </a>
+          and{""}
+          <a
+            href="https://master--react-weaather-app.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {""} hosted on Netlify
           </a>
         </footer>
       </div>
