@@ -23,6 +23,7 @@
     line-height: 19px;
     list-style: none;
 }
+
 .Weather .clearfix {
     display: flex;
     align-items: center;
@@ -52,4 +53,5 @@
     position: relative;
     line-height: 1;
     top: -34px;
+    float: top;
 }

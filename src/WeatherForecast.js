@@ -34,7 +34,6 @@ export default function WeatherForecast(props) {
                 </div>
               );
             }
-            // Adicione o retorno null aqui caso a condição do if não seja atendida
             return null;
           })}
         </div>

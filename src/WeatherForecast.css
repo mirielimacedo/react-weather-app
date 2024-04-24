@@ -1,7 +1,8 @@
 .WeatherForecast{
     text-align: center;
 }
-.WeatjerForecast-temperature-max{
-    opacity: 0.6;
-    margin-left: 5px;
+.WeatherForecast-temperature-max{
+  opacity: 0.8;
+  margin-left: 10px;
+  margin:8px;
 }
