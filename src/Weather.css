@@ -36,20 +36,20 @@
     width: 90px;
     height: 90px;
 }
-.Weather .temperature{
+.Weather .temperature {
     font-weight: bold;
-    color: rgb(33,33,33);
-    font-size: 55px;
-    font-weight: 400;
+    color: rgb(33, 33, 33);
+    font-size: 64px;
     line-height: 64px;
-    margin-left: 15px;
+    margin-left: 5px;
+    font-weight: 400;
+    margin-left: 10px;
 }
-.Weather .unit{
-    color: rgb(33,33,33);
+.Weather .unit {
+    color: rgb(33, 33, 33);
     font-size: 16px;
     font-weight: 400;
     position: relative;
     line-height: 1;
     top: -34px;
-    margin-left: -8px;
 }

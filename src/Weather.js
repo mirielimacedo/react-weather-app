@@ -65,7 +65,7 @@ export default function Weather({ city, onCityChange }) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast coordinates={weatherData.coordinates} />
+        <WeatherForecast coordinates={weatherData.coordinates} />{" "}
       </div>
     );
   } else {
